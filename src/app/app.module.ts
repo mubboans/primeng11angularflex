@@ -37,6 +37,8 @@ import {RippleModule} from 'primeng-lts/ripple';
 import {AvatarModule} from 'primeng-lts/avatar';
 import {TabViewModule} from 'primeng-lts/tabview';
 import { TimelineModule } from "primeng-lts/timeline";
+import {DropdownModule} from 'primeng-lts/dropdown';
+import {TabMenuModule} from 'primeng-lts/tabmenu';
 
 import {ProgressSpinnerModule} from 'primeng-lts/progressspinner';
 
@@ -58,6 +60,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    DropdownModule,
+   CheckboxModule,
+    TabMenuModule,
     AppRoutingModule,
     MenubarModule,
     TieredMenuModule,
@@ -65,6 +70,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FieldsetModule,
     CommonModule,
     FormsModule,
+  
     HttpClientModule,
     ReactiveFormsModule,
     InputSwitchModule,

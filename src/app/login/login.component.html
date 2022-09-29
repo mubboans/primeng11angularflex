@@ -1,36 +1,89 @@
-<div class="p-fluid mt-6 px-4">
-    <div class="grid flex justify-content-center" >
-        <div class="col-6 text-center">
+<h5 class="text-2xl">welcome, please log in/create account </h5>
+<div class="p-grid">
+<div class="p-col-6 p-mx-auto p-px-5">
+        <div class="p-card p-col-10 ">
+            <form name="loginForm">
+                <p class="p-text-muted">log in</p>
+                <div class="p-inputgroup p-mb-3">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input type="text" pInputText name="username" class="form-control" [(ngModel)]="email"
+                        placeholder="Username" autocomplete="username" required>
+                </div>
+                <div class="p-inputgroup p-mb-3">
+                    <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                    <input type="password"  pInputText name="password" class="form-control"
+                        [(ngModel)]="password" placeholder="Password" autocomplete="current-password" required>
+                </div>
+                <div class="p-text-center">
+                    <button type="button" (click)="loginUser()" pButton class="p-button-danger">Login</button>
+                </div>
+                <div class="p-d-flex p-jc-between">
+                    <p-checkbox label="Remember Me"></p-checkbox> 
+                    <button type="button" pButton label="Register" routerLink="/forgotpassword" class="p-button-text"></button>
+                </div>
+                <div class="p-text-center p-my-3">OR
+                    <div class="p-d-flex p-jc-between">
+                        <button icon="pi pi-facebook" type="button" pButton label="Sign in with facebook" class="p-button-secondary" routerLink="/register"></button>
+                        <button icon="pi pi-google" type="button" pButton label="Sign in with Google" routerLink="/forgotpassword" class="p-button-primary"></button>
+                    </div>
+                </div>
+                
+            </form>
        
-                <label for="firstname1">Name</label>
-        </div>
-        <div class="col-6">
-            <input id="firstname1" type="text" pInputText placeholder="Name"> 
-        </div>
-        <div class="col-6 text-center">
-            <label for="firstname1">Password</label>
-        </div>
-        <div class="col-6">
-            <input id="firstname1" type="text" pInputText placeholder="Password"> 
-        </div>
-        <div class="col-12 md:col-3">
-            <button pButton icon="pi pi-power-off" type="button" label="LogIn" ></button>
-        </div>
-     
-    </div>
-    <div class="p-grid">
-        <div class="p-col-10 p-text-center">
-            <h1>
-                Hello
-            </h1>
+    
         </div>
     </div>
-    <!-- <div class="p-field">
-        <label for="firstname1">Firstname</label>
-        <input id="firstname1" type="text" pInputText> 
+    <div class="p-col-6">
+        <div class="p-card p-col-11 p-mx-auto p-px-4">
+
+            <form name="loginForm">
+                <p class="p-text-muted">Creat Account</p>
+                <div class="p-inputgroup p-mb-3">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input type="text" pInputText name="username" class="form-control" [(ngModel)]="email"
+                        placeholder="full name" autocomplete="username" required>
+                </div>
+                <div class="p-inputgroup p-mb-3">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input type="text" pInputText name="username" class="form-control" [(ngModel)]="email"
+                        placeholder="email address" autocomplete="username" required>
+                </div>
+                <div class="p-inputgroup p-mb-3">
+                    <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                    <input type="password"  pInputText name="password" class="form-control"
+                        [(ngModel)]="password" placeholder="Password" autocomplete="current-password" required>
+                </div>
+                <div class="p-inputgroup p-mb-3">
+                    <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                    <input type="password"  pInputText name="password" class="form-control"
+                        [(ngModel)]="password" placeholder="Confirm Password" autocomplete="current-password" required>
+                </div>
+                <div class="p-inputgroup p-mb-3">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input type="text" pInputText name="username" class="form-control" [(ngModel)]="email"
+                        placeholder="interests" autocomplete="username" required>
+                </div>
+                <div class="p-inputgroup p-mb-3">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input type="text" pInputText name="username" class="form-control" [(ngModel)]="email"
+                        placeholder="preferred size" autocomplete="username" required>
+                </div>
+             
+                <div class="p-inputgroup p-mb-3">
+                <p-checkbox label="newsletter"></p-checkbox>
+                </div>
+                <div class="p-inputgroup p-mb-3">
+
+                    <p-checkbox label="by registering you agree with our t&c and privacy policy"></p-checkbox> 
+                </div>
+              
+                    <button type="button" (click)="loginUser()" pButton class="p-button-danger">Creat Account</button>
+                
+            </form>
+       
+    
+        </div>
     </div>
-    <div class="p-field">
-        <label for="lastname1">Lastname</label>
-        <input id="lastname1" type="text" pInputText> 
-    </div> -->
+
+    
 </div>

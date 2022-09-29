@@ -3,6 +3,19 @@
         <img src="../../assets/logo.png" height="40" class="p-mr-2">
     </ng-template>
     <ng-template pTemplate="end">
-        <button pButton icon="pi pi-power-off" type="button" label="Logout" ></button>
+       
+        
+        <button pButton pRipple type="button" icon="pi pi-search" class="p-button-outlined p-button-rounded"></button>
+        <button pButton pRipple type="button" icon="pi pi-user" class="p-button-outlined p-button-rounded"></button> 
+        <button pButton pRipple type="button" icon="pi pi-heart" class="p-button-outlined p-button-rounded"></button>
+         <button pButton pRipple type="button" icon="pi pi-wallet" class="p-button-outlined p-button-rounded"></button>    
+         <span>أهلا</span>
+         <p-dropdown [options]="cities" [(ngModel)]="selectedCity1" placeholder="Select a City" optionLabel="name"
+         [showClear]="true"></p-dropdown>
     </ng-template>
 </p-menubar>
+<div class="p-grid p-d-flex p-jc-center">
+    <div class="p-col-12 p-text-center">
+        <p-tabMenu [model]="menuitem" [activeItem]="activeItem"></p-tabMenu>
+    </div>
+</div>
