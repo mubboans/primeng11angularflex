@@ -9,7 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import {TooltipModule} from 'primeng-lts/tooltip'; 
-
+import {TabMenuModule} from 'primeng-lts/tabmenu';
 import {CarouselModule} from 'primeng-lts/carousel';
 import {DynamicDialogModule} from 'primeng-lts/dynamicdialog';
 import {ToastModule} from 'primeng-lts/toast';
@@ -38,7 +38,7 @@ import {AvatarModule} from 'primeng-lts/avatar';
 import {TabViewModule} from 'primeng-lts/tabview';
 import { TimelineModule } from "primeng-lts/timeline";
 import {DropdownModule} from 'primeng-lts/dropdown';
-import {TabMenuModule} from 'primeng-lts/tabmenu';
+
 
 import {ProgressSpinnerModule} from 'primeng-lts/progressspinner';
 
@@ -47,8 +47,9 @@ import {AccordionModule} from 'primeng-lts/accordion';
 import {TieredMenuModule} from 'primeng-lts/tieredmenu';
 import {FieldsetModule} from 'primeng-lts/fieldset';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { JwtInterceptor } from './service/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     DropdownModule,
    CheckboxModule,
     TabMenuModule,
@@ -70,7 +72,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FieldsetModule,
     CommonModule,
     FormsModule,
-  
+    CheckboxModule,
     HttpClientModule,
     ReactiveFormsModule,
     InputSwitchModule,
@@ -87,7 +89,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 		DialogModule,
 
 		ContextMenuModule,
-
+    FormsModule,
 		ButtonModule,
 		ToastModule,
     InputTextModule,
@@ -116,7 +118,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AccordionModule,
     
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS,useClass:JwtInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

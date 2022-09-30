@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng-lts/api/menuitem';
-
+import {TabMenuModule} from 'primeng-lts/tabmenu';
+import {MenubarModule} from 'primeng-lts/menubar';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
