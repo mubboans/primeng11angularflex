@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {DataViewModule} from 'primeng-lts/dataview';
 import {MenubarModule} from 'primeng-lts/menubar';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -61,6 +62,8 @@ import { JwtInterceptor } from './service/jwt.interceptor';
   ],
   imports: [
     BrowserModule,
+    DataViewModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     DropdownModule,
    CheckboxModule,
