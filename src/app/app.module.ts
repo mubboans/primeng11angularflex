@@ -52,6 +52,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtInterceptor } from './service/jwt.interceptor';
 
+import {MultiSelectModule} from 'primeng-lts/multiselect';
+
+import { ConfirmationService } from 'primeng-lts/api';
+import { MessageService } from 'primeng-lts/api';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +68,7 @@ import { JwtInterceptor } from './service/jwt.interceptor';
   ],
   imports: [
     BrowserModule,
+    MultiSelectModule,
     DataViewModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -122,8 +129,11 @@ import { JwtInterceptor } from './service/jwt.interceptor';
     
   ],
   providers: [
+    MessageService,ConfirmationService,
     {provide: HTTP_INTERCEPTORS,useClass:JwtInterceptor, multi:true}
+    
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
