@@ -20,12 +20,13 @@ export class AuthlogService {
     }
     return this.http.post<any>(this.url, dataa)
   }
-  getProducts():Observable<any> {
-    return this.http.get<any>('./assets/expense.json').pipe(
-     x=>{
+  getProducts():Observable<any>{
+    return this.http.get<any>('./assets/expense.json')
+   .pipe(
+    map(x=>{
       return x;
-     }
-    )
+    })
+   )
 
 }
 }

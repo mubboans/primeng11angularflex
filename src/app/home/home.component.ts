@@ -14,14 +14,20 @@ export class HomeComponent implements OnInit {
   expes:Expo[];
   expenses:Expo;
   submitted:boolean;
+  data:any[]
   ngOnInit(): void {
+    this.expenses=new Expo();
     this.cars=[{
       id:111,name:'mubashir'
     },{
       id:222,name:'musaddik'
     }]
-    this.auth.getProducts().subscribe(data => this.expes = data);
-    console.log(this.expes,"detail chekc")
+    this.auth.getProducts().subscribe((x:any[]) => {
+      console.log(x)
+      this.expes = x
+      console.log(this.expes,"detail chekc")
+    });
+
   }
 showModalDialog(){
   this.displayModal=true;
@@ -51,18 +57,12 @@ editExpo(expenses: Expo) {
   this.displayModal = true;
 }
 
-deleteExpo(expenses: Expo) {
-  this.confirmationService.confirm({
-      message: 'Are you sure you want to delete ' + expenses.expensename + '?',
-      header: 'Confirm',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-          this.expes = this.expes.filter(val => val.id !== expenses.id);
-          this.expenses = {};
-          this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
-      }
-  });
+del(expenses: Expo){
+  this.expes = this.expes.filter(val => val.id !== expenses.id);
+  this.expenses = {};
+  this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
 }
+
 
 hideDialog() {
   this.displayModal = false;

@@ -56,7 +56,7 @@ import {MultiSelectModule} from 'primeng-lts/multiselect';
 
 import { ConfirmationService } from 'primeng-lts/api';
 import { MessageService } from 'primeng-lts/api';
-
+import {TableModule} from 'primeng-lts/table';
 
 @NgModule({
   declarations: [
@@ -68,6 +68,7 @@ import { MessageService } from 'primeng-lts/api';
   ],
   imports: [
     BrowserModule,
+    TableModule,
     MultiSelectModule,
     DataViewModule,
     BrowserAnimationsModule,

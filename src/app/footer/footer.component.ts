@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Expo } from '../home/home.component';
+import { AuthlogService } from '../service/authlog.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public auth:AuthlogService) { }
+  data:Expo[]
   ngOnInit(): void {
+    this.auth.getProducts().subscribe(x=>{
+      this.data = x 
+      console.log(x,this.data)
+    })
   }
 
 }
