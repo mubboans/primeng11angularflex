@@ -41,12 +41,12 @@
       {
         "id": "1",
         "date": "05-10-2022",
-        "event": "Expense Created"
+        "event": "Expense Onto date"
       },
       {
         "id": "1",
         "date": "04-10-2022",
-        "event": "Expense Edited"
+        "event": "Expense Shared"
       }
     ]
   },
@@ -68,6 +68,16 @@
         "date": "15-10-2022",
         "event": "Expense Created"
       },
+      {
+        "id": "1",
+        "date": "15-10-2022",
+        "event": "Expense added"
+      },{
+        "id": "1",
+        "date": "15-10-2022",
+        "event": "Expense deleted"
+      },
+
       {
         "id": "1",
         "date": "24-10-2022",

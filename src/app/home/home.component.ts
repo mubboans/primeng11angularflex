@@ -10,13 +10,33 @@ import { AuthlogService } from '../service/authlog.service';
 export class HomeComponent implements OnInit {
   displayModal:boolean;
   cars:any[]
+  caty:any
+  history:History;
   constructor(public auth:AuthlogService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
   expes:Expo[];
   expenses:Expo;
   submitted:boolean;
-  data:any[]
+  dataa:any[]
+  selectedCity:any;
+  cities: any[];
+  foods: any[];
   ngOnInit(): void {
+    this.cities = [
+      {name: 'New York', code: 'NY'},
+      {name: 'Rome', code: 'RM'},
+      {name: 'London', code: 'LDN'},
+      {name: 'Istanbul', code: 'IST'},
+      {name: 'Paris', code: 'PRS'}
+  ];
+  this.foods = [
+    {name: 'Chicken', code: 'NY'},
+    {name: 'Veg', code: 'RM'},
+    {name: 'Eggs', code: 'LDN'},
+    {name: 'Deserts', code: 'IST'},
+    {name: 'Drinks', code: 'PRS'}
+];
     this.expenses=new Expo();
+    this.expenses.category=new Caty()
     this.cars=[{
       id:111,name:'mubashir'
     },{
@@ -25,15 +45,18 @@ export class HomeComponent implements OnInit {
     this.auth.getProducts().subscribe((x:any[]) => {
       console.log(x)
       this.expes = x
-      console.log(this.expes,"detail chekc")
+      this.dataa=x.map(x=>x.history)
+      console.log(this.expes,"detail chekc",this.dataa)
     });
 
   }
 showModalDialog(){
-  this.displayModal=true;
+
 }
 
 openNew() {
+
+  this.history = {}
   this.expenses = {};
   this.submitted = false;
   this.displayModal = true;
@@ -60,7 +83,7 @@ editExpo(expenses: Expo) {
 del(expenses: Expo){
   this.expes = this.expes.filter(val => val.id !== expenses.id);
   this.expenses = {};
-  this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
+  this.messageService.add({severity:'success', summary: 'Successful', detail: 'Expense Deleted', life: 3000});
 }
 
 
@@ -68,26 +91,30 @@ hideDialog() {
   this.displayModal = false;
   this.submitted = false;
 }
-
+addhistory(){
+  const item = new History();
+  this.expenses.history.push(item)
+}
 saveProduct() {
   this.submitted = true;
 
   if (this.expenses.expensename.trim()) {
       if (this.expenses.id) {
           this.expes[this.findIndexById(this.expenses.id)] = this.expenses;                
-          this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
+          this.messageService.add({severity:'success', summary: 'Successful', detail: 'Expense Updated', life: 3000});
       }
       else {
           this.expenses.id = this.createId();
           this.expenses.added_by = 'Users';
           this.expes.push(this.expenses);
-          this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Created', life: 3000});
+          this.messageService.add({severity:'success', summary: 'Successful', detail: 'Expense Created', life: 3000});
       }
 
       this.expes = [...this.expes];
       this.displayModal = false;
       this.expenses = {};
   }
+  
 }
 
 findIndexById(id: string): number {
@@ -110,16 +137,17 @@ createId(): string {
   }
   return id;
 }
+
 }
 export class Expo{
   public expensename?:string;
   public expensedetail?:string;
-  public catygery?:Caty;
+  public category?:Caty;
   public date?:string;
   public isRecoverable?:boolean;
   public added_by?:string;
   public added_on?:string;
-  public history?:Array<History>;
+  public history?:Array<any>;
   public id?:string;
 }
 export class History{
@@ -130,4 +158,6 @@ export class History{
 export class Caty{
 public id?:number;
 public name?:string;
+public foods?:string;
+public travels?:string;
 }

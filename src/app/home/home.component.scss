@@ -98,6 +98,10 @@
     border-radius: 4px;
     margin-bottom: 2rem;
 }
+:host ::ng-deep{
+    .p-dropdown {
+        width: 5rem ;}
+}
 
 @media screen and (max-width: 576px) {
 	:host ::ng-deep .product-list-item {
