@@ -27,10 +27,12 @@ export class HeaderComponent implements OnInit {
     ];
     this.items = [
       {
-        label:'EXPENSE DETAIL',      
+        label:'Text - Speech ',  
+        routerLink:'text-speech'    
     },
     {
-        label:'ADD EXPENSE',  
+        label:'Speech-Text',
+        routerLink:'speech-text'  
     }
   ];
   this.menuitem = [

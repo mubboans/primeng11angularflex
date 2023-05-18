@@ -1,0 +1,33 @@
+.custom-audio {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
+  .custom-audio .controls {
+    display: none;
+  }
+
+  .custom-audio:hover .controls {
+    display: block;
+  }
+
+  .custom-audio .controls .play {
+    width: 20px;
+    height: 20px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .custom-audio .controls .pause {
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    color: #000;
+    border-radius: 50%;
+    cursor: pointer;
+  }

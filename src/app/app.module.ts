@@ -57,6 +57,8 @@ import {MultiSelectModule} from 'primeng-lts/multiselect';
 import { ConfirmationService } from 'primeng-lts/api';
 import { MessageService } from 'primeng-lts/api';
 import {TableModule} from 'primeng-lts/table';
+import { TextSpeechComponent } from './text-speech/text-speech.component';
+import { SpeechTextComponent } from './speech-text/speech-text.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import {TableModule} from 'primeng-lts/table';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    TextSpeechComponent,
+    SpeechTextComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,17 @@
+<div class="p-grid p-d-flex p-jc-center ">
+    <div class="col-12 p-md-4 p-d-block p-mx-auto p-3 p-text-center">
+        <div class="">
+            <p-dropdown styleClass="p-mb-3" (onChange)="fnShowAudio()" autoWidth="false" [style]="{'width':'80%'}" [options]="typearr" [(ngModel)]="type" optionLabel="name" optionValue="value"></p-dropdown>
+
+            <p-dropdown styleClass="p-mt-3" (onChange)="fnShowAudio()" [options]="timearr" autoWidth="false" [style]="{'width':'80%'}" [(ngModel)]="periodTime" optionLabel="name" optionValue="value"></p-dropdown>    
+        </div>
+        </div>
+        <div class="col-12 p-md-8 p-4 p-d-flex">
+            <!-- <audio class="custom-audio" *ngIf="showAudio" controls>
+                <source [src]="audioSrc" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio> -->
+              <audio class="p-mx-auto p-jc-center p-align-center" controls [src]="audioSrc" ></audio>
+              <!-- <p>{{showtext}} text</p> -->
+        </div>
+        </div>
